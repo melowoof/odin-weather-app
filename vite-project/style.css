@@ -105,15 +105,38 @@ body {
 }
 
 #temperature-weather-status {
+  position: relative;
+  height: 145px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* #temperature-weather-status-normal, */
+#temperature-weather-status-minimized {
+  position: absolute;
+  /* width: 200px; */
+  top: 0;
+  opacity: 0;
+  transition: 0.2s ease;
+  /* background-color: black; */
+}
+
+#temperature-weather-status-normal {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: 0.2s ease;
 }
 
-#current-weather-container-row.minimized #temperature,
-#current-weather-container-row.minimized #weather-status {
-  font-size: 1.4rem;
-  font-weight: normal;
+#temperature-weather-status-normal .temperature {
+  font-size: 5.5rem;
+}
+
+#temperature-weather-status-minimized .temperature,
+#temperature-weather-status-minimized .weather-status {
+  font-size: 1.3rem;
+  font-weight: 500;
   /* transition: font-size 0.3s ease, opacity 0.3s ease; */
 }
 
@@ -121,19 +144,19 @@ body {
     transition: font-size 0.1s ease-out, opacity 0.1s ease-out;
 } */
 
-#temperature-weather-status.minimized {
+#temperature-weather-status-minimized {
   display: flex;
   flex-direction: row;
 }
 
-#temperature-weather-status.minimized #temperature {
+#temperature-weather-status-minimized .temperature {
   margin-right: 20px;
 }
 
-#temperature-weather-status.minimized #weather-status::before {
+#temperature-weather-status-minimized .weather-status::before {
   margin-right: 10px;
-  content: "|";
-  font-weight: bold;
+  content: "\007C";
+  /* font-weight: bold; */
 }
 
 #current-weather-container-row.minimized #high-low-temp {
@@ -144,13 +167,13 @@ body {
   font-size: 2.2rem;
 }
 
-#current-weather-container #temperature {
+#temperature-weather-status-normal .temperature {
   font-size: 5.5rem;
   margin: -10px;
   font-weight: 100;
 }
 
-#current-weather-container #temperature::after {
+#current-weather-container .temperature::after {
   content: "\00B0";
   position: absolute;
 }

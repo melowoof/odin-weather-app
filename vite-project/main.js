@@ -29,5 +29,24 @@ function currentWeatherScrollTransform() {
   });
 }
 
+function currentWeatherScrollOpacity() {
+  const element1 = document.querySelector("#temperature-weather-status-normal");
+  const element2 = document.querySelector(
+    "#temperature-weather-status-minimized"
+  );
+  const scrollThreshold = 100;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > scrollThreshold) {
+      element1.style.opacity = "0";
+      element2.style.opacity = "1";
+    } else {
+      element1.style.opacity = "1";
+      element2.style.opacity = "0";
+    }
+  });
+}
+
 fetchWeatherData("paris");
-currentWeatherScrollTransform();
+// currentWeatherScrollTransform();
+currentWeatherScrollOpacity();
