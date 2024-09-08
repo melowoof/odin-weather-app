@@ -1,13 +1,49 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+
+<body>
+  <div id="app">
+    <div id="main-container">
+      <div id="search-container-row">
+        <input type="text" id="search-box" placeholder="Search"></input>
+      </div>
+      <div id="current-weather-container-row" class="current-weather-transform ">
+        <div id="current-weather-container">
+          <div id="location">Malmö</div>
+          <div id="temperature-weather-status" class="current-weather-transform ">
+            <div id="temperature">25</div>
+            <div id="weather-status">Mostly Cloudy</div>
+          </div>
+          <div id="high-low-temp">
+            <div id="high-temp">H:26</div>
+            <div id="low-temp">L:17</div>
+          </div>
+        </div>
+      </div>
+      <div id="additional-infos-container">
+        <div class="grid-item item1" id="hourly-forecast">Item</div>
+        <div class="grid-item item2" id="ten-day-forecast">Item</div>
+        <div class="grid-item item3">Item</div>
+        <div class="grid-item item4">Item</div>
+        <div class="grid-item item5">Item</div>
+        <div class="grid-item item6">Item</div>
+        <div class="grid-item item7">Item</div>
+        <div class="grid-item item8">Item</div>
+        <div class="grid-item item9">Item</div>
+        <div class="grid-item item10">Item</div>
+        <div class="grid-item item11">Item</div>
+        <div class="grid-item item12">Item</div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>

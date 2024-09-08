@@ -1,6 +1,16 @@
 /* Document
  * ========================================================================== */
 
+:root {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; /* Inherit box-sizing from :root */
+}
+
 * {
   font-size: 1rem;
 }
@@ -15,6 +25,14 @@ html {
   line-height: 1.15; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  /* overflow: hidden;
+  height: 100%; */
+}
+
+body {
+  margin: 0;
+  /* height: 100%; */
+  overflow: auto;
 }
 
 /* Sections

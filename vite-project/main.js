@@ -1,25 +1,33 @@
 import "./style.css";
 import "./normalize.css";
-import javascriptLogo from "./javascript.svg";
-import viteLogo from "/vite.svg";
-import { setupCounter } from "./counter.js";
+import { fetchWeatherData } from "./weatherAPI.js";
 
-document.querySelector("#app").innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`;
+function currentWeatherScrollTransform() {
+  const currentWeatherContainerRow = document.querySelector(
+    "#current-weather-container-row"
+  );
+  const offset = 600;
+  const scrollThreshold = 100;
+  const elementsToTransform = document.querySelectorAll(
+    ".current-weather-transform"
+  );
 
-setupCounter(document.querySelector("#counter"));
+  window.addEventListener("scroll", () => {
+    const rect = currentWeatherContainerRow.getBoundingClientRect();
+    const isVisible =
+      rect.top < window.innerHeight - offset && rect.bottom >= 0;
+
+    if (window.scrollY > scrollThreshold) {
+      elementsToTransform.forEach((element) => {
+        element.classList.add("minimized");
+      });
+    } else {
+      elementsToTransform.forEach((element) => {
+        element.classList.remove("minimized");
+      });
+    }
+  });
+}
+
+fetchWeatherData("paris");
+currentWeatherScrollTransform();

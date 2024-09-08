@@ -1,96 +1,210 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  --clear-gradient: linear-gradient(to bottom, #4979e3, #b4ddf0); /* Clear */
+  --partly-cloudy-gradient: linear-gradient(
+    to bottom,
+    #a0c4ff,
+    #ffffff
+  ); /* Partly Cloudy */
+  --cloudy-gradient: linear-gradient(to bottom, #b0b0b0, #d3d3d3); /* Cloudy */
+  --rain-gradient: linear-gradient(to bottom, #4a90e2, #a9c9e8); /* Rain */
+  --snow-gradient: linear-gradient(to bottom, #e0f7fa, #ffffff); /* Snow */
+  --thunderstorms-gradient: linear-gradient(
+    to bottom,
+    #4b0082,
+    #6a5acd
+  ); /* Thunderstorms */
+  --fog-gradient: linear-gradient(to bottom, #d3d3d3, #ffffff); /* Fog */
+  --windy-gradient: linear-gradient(to bottom, #a0d3e8, #b0e0e6); /* Windy */
+  --drizzle-gradient: linear-gradient(
+    to bottom,
+    #b0c4de,
+    #e6e6fa
+  ); /* Drizzle */
+  --haze-gradient: linear-gradient(to bottom, #f5deb3, #d3d3d3); /* Haze */
+  --sleet-gradient: linear-gradient(to bottom, #a9a9a9, #b0e0e6); /* Sleet */
+  --tornado-gradient: linear-gradient(
+    to bottom,
+    #2f4f4f,
+    #000000
+  ); /* Tornado */
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  /* background-color: rgb(188, 220, 238); */
+  background: var(--clear-gradient);
+  background-color: rgb(73, 121, 227);
+  /* background-color: rgb(188, 220, 238); */
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+#main-container {
+  width: 100%;
+  min-height: 100px;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 40px 300px 1fr;
 }
 
-.card {
-  padding: 2em;
+#search-container-row {
+  width: 100%;
+  /* height: 40px; */
+  /* background-color: red; */
+  display: flex;
+  /* position: relative; */
 }
 
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+#search-box {
+  right: 20px;
+  position: fixed;
+  background-color: rgba(31, 86, 172, 0.4);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border: none;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border-radius: 8px;
+  width: 250px;
+  padding: 10px;
+  color: white;
+  z-index: 10;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+#current-weather-container-row {
+  width: 100%;
+  /* height: 150vh; */
+  /* outline: 1px solid green; */
+  /* height: 300px; */
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  position: sticky;
+  /* z-index: 10; */
+  top: 0;
+}
+
+#current-weather-container {
+  width: fit-content;
+  min-width: 250px;
+  /* outline: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+#temperature-weather-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#current-weather-container-row.minimized #temperature,
+#current-weather-container-row.minimized #weather-status {
+  font-size: 1.4rem;
+  font-weight: normal;
+  /* transition: font-size 0.3s ease, opacity 0.3s ease; */
+}
+
+/* #temperature, #weather-status {
+    transition: font-size 0.1s ease-out, opacity 0.1s ease-out;
+} */
+
+#temperature-weather-status.minimized {
+  display: flex;
+  flex-direction: row;
+}
+
+#temperature-weather-status.minimized #temperature {
+  margin-right: 20px;
+}
+
+#temperature-weather-status.minimized #weather-status::before {
+  margin-right: 10px;
+  content: "|";
+  font-weight: bold;
+}
+
+#current-weather-container-row.minimized #high-low-temp {
+  display: none;
+}
+
+#current-weather-container #location {
+  font-size: 2.2rem;
+}
+
+#current-weather-container #temperature {
+  font-size: 5.5rem;
+  margin: -10px;
+  font-weight: 100;
+}
+
+#current-weather-container #temperature::after {
+  content: "\00B0";
+  position: absolute;
+}
+
+#current-weather-container #high-low-temp {
+  display: flex;
+  gap: 10px;
+}
+
+#current-weather-container #high-temp,
+#current-weather-container #low-temp,
+#current-weather-container #weather-status {
+  font-size: 1.4rem;
+}
+
+#current-weather-container #high-temp::after,
+#current-weather-container #low-temp::after {
+  content: "\00B0";
+}
+
+#additional-infos-container {
+  /* background-color: red; */
+  /* height: 400px; */
+  /* height: fit-content; */
+  /* width: 900px; */
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  grid-auto-rows: 200px;
+  gap: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  color: white;
+}
+
+.grid-item {
+  /* background-color: green; */
+  /* outline: 1px solid black; */
+  /* width: 200px; */
+  /* height: 200px; */
+  border-radius: 8px;
+  padding: 10px;
+  /* position: sticky;
+  top: 250px; */
+  background-color: rgba(31, 86, 172, 0.4);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
+
+#hourly-forecast {
+  grid-column: span 4;
+}
+
+#ten-day-forecast {
+  grid-column: span 2;
+  grid-row: span 2;
 }
