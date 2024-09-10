@@ -1,5 +1,3 @@
-let currentTempUnit = "C";
-
 export async function fetchWeatherData(city) {
   //   const cacheKey = `weather_${location}`;
 
@@ -9,7 +7,8 @@ export async function fetchWeatherData(city) {
   }
 
   const apiKey = "0542a923612c4aadaed232622240509";
-  const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
+  //   const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
+  const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=10&aqi=no&alerts=no`;
 
   try {
     const response = await fetch(apiUrl, { mode: "cors" });
@@ -28,25 +27,11 @@ export async function fetchWeatherData(city) {
   }
 }
 
-function displayWeather(data) {}
-
-function convertTemp(temp) {
-  // if (temp === C and currentTempUnit === C) {don't do anything} else if (temp === C and currentTempUnit === F) {convert temp to F}
-}
-
-function toggleTempUnit() {
-  if (currentTempUnit === "C") {
-    currentTempUnit = "F";
-  } else {
-    currentTempUnit = "C";
-  }
-}
-
 function getCacheData(city) {
   const cachedData = localStorage.getItem(city);
   if (cachedData) {
     const { timestamp, data } = JSON.parse(cachedData);
-    const cacheExpiry = 10 * 60 * 1000;
+    const cacheExpiry = 30 * 60 * 1000;
 
     if (Date.now() - timestamp < cacheExpiry) {
       console.log("Serving from cache:", data);

@@ -12,29 +12,34 @@
   <div id="app">
     <div id="main-container">
       <div id="search-container-row">
-        <input type="text" id="search-box" placeholder="Search"></input>
+        <input type="text" id="search-box" placeholder="Search">
       </div>
       <div id="current-weather-container-row" class="current-weather-transform ">
         <div id="current-weather-container">
           <div id="location">Malmö</div>
           <div id="temperature-weather-status">
             <div id="temperature-weather-status-normal" class="temperature-weather-status">
-              <div class="temperature">25</div>
-              <div class="weather-status">Mostly Cloudy</div>
+              <div class="current-weather-temperature">25</div>
+              <div class="current-weather-status">Mostly Cloudy</div>
               <div id="high-low-temp">
                 <div id="high-temp">H:26</div>
                 <div id="low-temp">L:17</div>
               </div>
             </div>
             <div id="temperature-weather-status-minimized" class="temperature-weather-status">
-              <div class="temperature">25</div>
-              <div class="weather-status">Mostly Cloudy</div>
+              <div class="current-weather-temperature">25</div>
+              <div class="current-weather-status">Mostly Cloudy</div>
             </div>
           </div>
         </div>
       </div>
       <div id="additional-infos-container">
-        <div class="grid-item item1" id="hourly-forecast">Item</div>
+        <div class="grid-item item1 hourly-forecast">
+          <div class="hourly-forecast-today">
+            <div>Moderate rain</div>
+          </div>
+          <div id="hourly-forecast"></div>
+        </div>
         <div class="grid-item item2" id="ten-day-forecast">Item</div>
         <div class="grid-item item3">Item</div>
         <div class="grid-item item4">Item</div>
