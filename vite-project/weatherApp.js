@@ -37,6 +37,7 @@ function displayData(data) {
   weatherUI.humidity(data);
   weatherUI.pressure(data);
   weatherUI.averages(data);
+  weatherUI.setBackgroundGradient(data);
 }
 
 async function search(event) {

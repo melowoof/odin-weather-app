@@ -357,6 +357,12 @@ function toggleTempUnit() {
 export function tenDaysForecast(data) {
   const tenDayForecast = document.querySelector("#ten-day-forecast");
   tenDayForecast.innerHTML = "";
+  const currentTemp = data.current.temp_c;
+  const tempPointLeft = getPercentage(
+    data.forecast.forecastday[0].day.mintemp_c,
+    data.forecast.forecastday[0].day.maxtemp_c,
+    currentTemp
+  );
 
   const lowTempArray = [];
   const highTempArray = [];
@@ -372,6 +378,8 @@ export function tenDaysForecast(data) {
     const forecastDayDiv = document.createElement("div");
     const dateString =
       i === 0 ? "Today" : getWeekday(data.forecast.forecastday[i].date);
+    const meterPoint =
+      i === 0 ? `<div class="uv-index-meter-point"></div>` : "";
 
     forecastDayDiv.innerHTML = `<div class="forecast-day">
               <div class="forecast-day-date">${dateString}</div>
@@ -388,7 +396,7 @@ export function tenDaysForecast(data) {
                   data.forecast.forecastday[i].day.mintemp_c
                 )}&deg;</div>
                 <div class="forecast-day-temperature-meter">
-                  <div class="forecast-day-temperature-meter-filled" id="forecast-day-temperature-meter-filled-${i}">
+                  <div class="forecast-day-temperature-meter-filled" id="forecast-day-temperature-meter-filled-${i}">${meterPoint}
                   </div>
                 </div>
                 <div class="forecast-day-high-temp">${convertTemp(
@@ -643,6 +651,139 @@ export function averages(data) {
   const averagesValue = averageTemp - highTemp;
 
   averagesValueDiv.innerHTML = `${Math.floor(averagesValue)}&deg;`;
-  todayAverageDiv.innerHTML = `H:${Math.floor(highTemp)}&deg;`;
-  averageAverageDiv.innerHTML = `H:${Math.floor(averageTemp)}&deg;`;
+  todayAverageDiv.innerHTML = `H:${Math.floor(convertTemp(highTemp))}&deg;`;
+  averageAverageDiv.innerHTML = `H:${Math.floor(
+    convertTemp(averageTemp)
+  )}&deg;`;
+}
+
+export function setBackgroundGradient(data) {
+  let gradient;
+  let rgbaColor;
+  const isDay = data.current.is_day;
+  // const isDay = 1;
+
+  // Normalize the weather condition to lowercase
+  const condition = data.current.condition.text.toLowerCase();
+
+  // Map weather conditions to gradients
+  if (isDay) {
+    switch (true) {
+      case condition.includes("clear"):
+        gradient = "var(--clear-gradient)";
+        rgbaColor = "var(--clear-rgba)";
+        break;
+      case condition.includes("partly cloudy"):
+        gradient = "var(--partly-cloudy-gradient)";
+        rgbaColor = "var(--partly-cloudy-rgba)";
+        break;
+      case condition.includes("cloudy"):
+        gradient = "var(--cloudy-gradient)";
+        rgbaColor = "var(--cloudy-rgba)";
+        break;
+      case condition.includes("rain"):
+        gradient = "var(--rain-gradient)";
+        rgbaColor = "var(--rain-rgba)";
+        break;
+      case condition.includes("snow"):
+        gradient = "var(--snow-gradient)";
+        rgbaColor = "var(--snow-rgba)";
+        break;
+      case condition.includes("thunderstorms"):
+        gradient = "var(--thunderstorms-gradient)";
+        rgbaColor = "var(--thunderstorms-rgba)";
+        break;
+      case condition.includes("fog"):
+        gradient = "var(--fog-gradient)";
+        rgbaColor = "var(--fog-rgba)";
+        break;
+      case condition.includes("windy"):
+        gradient = "var(--windy-gradient)";
+        rgbaColor = "var(--windy-rgba)";
+        break;
+      case condition.includes("drizzle"):
+        gradient = "var(--drizzle-gradient)";
+        rgbaColor = "var(--drizzle-rgba)";
+        break;
+      case condition.includes("haze"):
+        gradient = "var(--haze-gradient)";
+        rgbaColor = "var(--haze-rgba)";
+        break;
+      case condition.includes("sleet"):
+        gradient = "var(--sleet-gradient)";
+        rgbaColor = "var(--sleet-rgba)";
+        break;
+      case condition.includes("tornado"):
+        gradient = "var(--tornado-gradient)";
+        rgbaColor = "var(--tornado-rgba)";
+        break;
+      default:
+        gradient = "var(--clear-gradient)"; // Default to clear if no match
+        rgbaColor = "var(--clear-rgba)";
+    }
+  } else {
+    switch (true) {
+      case condition.includes("clear"):
+        gradient = "var(--clear-night-gradient)";
+        rgbaColor = "var(--clear-night-rgba)";
+        break;
+      case condition.includes("partly cloudy"):
+        gradient = "var(--partly-cloudy-night-gradient)";
+        rgbaColor = "var(--partly-cloudy-night-rgba)";
+        break;
+      case condition.includes("cloudy"):
+        gradient = "var(--cloudy-night-gradient)";
+        rgbaColor = "var(--cloudy-night-rgba)";
+        break;
+      case condition.includes("rain"):
+        gradient = "var(--rain-night-gradient)";
+        rgbaColor = "var(--rain-night-rgba)";
+        break;
+      case condition.includes("snow"):
+        gradient = "var(--snow-night-gradient)";
+        rgbaColor = "var(--snow-night-rgba)";
+        break;
+      case condition.includes("thunderstorms"):
+        gradient = "var(--thunderstorms-night-gradient)";
+        rgbaColor = "var(--thunderstorms-night-rgba)";
+        break;
+      case condition.includes("fog"):
+        gradient = "var(--fog-night-gradient)";
+        rgbaColor = "var(--fog-night-rgba)";
+        break;
+      case condition.includes("windy"):
+        gradient = "var(--windy-night-gradient)";
+        rgbaColor = "var(--windy-night-rgba)";
+        break;
+      case condition.includes("drizzle"):
+        gradient = "var(--drizzle-night-gradient)";
+        rgbaColor = "var(--drizzle-night-rgba)";
+        break;
+      case condition.includes("haze"):
+        gradient = "var(--haze-night-gradient)";
+        rgbaColor = "var(--haze-night-rgba)";
+        break;
+      case condition.includes("sleet"):
+        gradient = "var(--sleet-night-gradient)";
+        rgbaColor = "var(--sleet-night-rgba)";
+        break;
+      case condition.includes("tornado"):
+        gradient = "var(--tornado-night-gradient)";
+        rgbaColor = "var(--tornado-night-rgba)";
+        break;
+      default:
+        gradient = "var(--clear-night-gradient)"; // Default to clear night if no match
+        rgbaColor = "var(--clear-night-rgba)";
+    }
+  }
+  // Set the body's background to the selected gradient
+  document.body.style.background = gradient;
+  document.body.style.backgroundAttachment = "fixed";
+
+  const gridItems = document.querySelectorAll(".grid-item");
+  const searchBox = document.querySelector("#search-box");
+  gridItems.forEach((item) => {
+    item.style.backgroundColor = rgbaColor;
+  });
+  searchBox.style.backgroundColor = rgbaColor;
 }

@@ -1,38 +1,157 @@
 :root {
-  --clear-gradient: linear-gradient(to bottom, #4979e3, #b4ddf0); /* Clear */
+  /* Day Gradients */
+  --clear-gradient: linear-gradient(
+    to bottom,
+    rgba(73, 121, 227, 1),
+    rgba(180, 221, 240, 1)
+  ); /* Clear */
   --partly-cloudy-gradient: linear-gradient(
     to bottom,
-    #a0c4ff,
-    #ffffff
+    rgba(135, 206, 250, 1),
+    rgba(255, 255, 255, 1)
   ); /* Partly Cloudy */
-  --cloudy-gradient: linear-gradient(to bottom, #b0b0b0, #d3d3d3); /* Cloudy */
-  --rain-gradient: linear-gradient(to bottom, #4a90e2, #a9c9e8); /* Rain */
-  --snow-gradient: linear-gradient(to bottom, #e0f7fa, #ffffff); /* Snow */
+  --cloudy-gradient: linear-gradient(
+    to bottom,
+    rgba(200, 200, 200, 1),
+    rgba(230, 230, 230, 1)
+  ); /* Cloudy */
+  --rain-gradient: linear-gradient(
+    to bottom,
+    rgba(70, 130, 180, 1),
+    rgba(169, 201, 232, 1)
+  ); /* Rain */
+  --snow-gradient: linear-gradient(
+    to bottom,
+    rgba(224, 247, 250, 1),
+    rgba(255, 255, 255, 1)
+  ); /* Snow */
   --thunderstorms-gradient: linear-gradient(
     to bottom,
-    #4b0082,
-    #6a5acd
+    rgba(75, 0, 130, 1),
+    rgba(106, 90, 205, 1)
   ); /* Thunderstorms */
-  --fog-gradient: linear-gradient(to bottom, #d3d3d3, #ffffff); /* Fog */
-  --windy-gradient: linear-gradient(to bottom, #a0d3e8, #b0e0e6); /* Windy */
+  --fog-gradient: linear-gradient(
+    to bottom,
+    rgba(211, 211, 211, 1),
+    rgba(255, 255, 255, 1)
+  ); /* Fog */
+  --windy-gradient: linear-gradient(
+    to bottom,
+    rgba(135, 206, 250, 1),
+    rgba(176, 224, 230, 1)
+  ); /* Windy */
   --drizzle-gradient: linear-gradient(
     to bottom,
-    #b0c4de,
-    #e6e6fa
+    rgba(176, 196, 222, 1),
+    rgba(230, 230, 250, 1)
   ); /* Drizzle */
-  --haze-gradient: linear-gradient(to bottom, #f5deb3, #d3d3d3); /* Haze */
-  --sleet-gradient: linear-gradient(to bottom, #a9a9a9, #b0e0e6); /* Sleet */
+  --haze-gradient: linear-gradient(
+    to bottom,
+    rgba(245, 222, 179, 1),
+    rgba(211, 211, 211, 1)
+  ); /* Haze */
+  --sleet-gradient: linear-gradient(
+    to bottom,
+    rgba(169, 169, 169, 1),
+    rgba(176, 224, 230, 1)
+  ); /* Sleet */
   --tornado-gradient: linear-gradient(
     to bottom,
-    #2f4f4f,
-    #000000
+    rgba(47, 79, 79, 1),
+    rgba(0, 0, 0, 1)
   ); /* Tornado */
+
+  /* Night Gradients */
+  --clear-night-gradient: linear-gradient(to bottom, #040319, #313e5b);
+  --partly-cloudy-night-gradient: linear-gradient(
+    to bottom,
+    rgba(44, 44, 74, 1),
+    rgba(74, 74, 109, 1)
+  ); /* Partly Cloudy Night */
+  --cloudy-night-gradient: linear-gradient(
+    to bottom,
+    rgba(74, 74, 74, 1),
+    rgba(125, 125, 125, 1)
+  ); /* Cloudy Night */
+  --rain-night-gradient: linear-gradient(
+    to bottom,
+    rgba(44, 62, 80, 1),
+    rgba(52, 73, 94, 1)
+  ); /* Rain Night */
+  --snow-night-gradient: linear-gradient(
+    to bottom,
+    rgba(224, 247, 250, 1),
+    rgba(176, 224, 230, 1)
+  ); /* Snow Night */
+  --thunderstorms-night-gradient: linear-gradient(
+    to bottom,
+    rgba(47, 47, 79, 1),
+    rgba(75, 0, 130, 1)
+  ); /* Thunderstorms Night */
+  --fog-night-gradient: linear-gradient(
+    to bottom,
+    rgba(74, 74, 74, 1),
+    rgba(211, 211, 211, 1)
+  ); /* Fog Night */
+  --windy-night-gradient: linear-gradient(
+    to bottom,
+    rgba(44, 62, 80, 1),
+    rgba(52, 73, 94, 1)
+  ); /* Windy Night */
+  --drizzle-night-gradient: linear-gradient(
+    to bottom,
+    rgba(74, 74, 74, 1),
+    rgba(176, 196, 222, 1)
+  ); /* Drizzle Night */
+  --haze-night-gradient: linear-gradient(
+    to bottom,
+    rgba(74, 74, 74, 1),
+    rgba(211, 211, 211, 1)
+  ); /* Haze Night */
+  --sleet-night-gradient: linear-gradient(
+    to bottom,
+    rgba(74, 74, 74, 1),
+    rgba(176, 224, 230, 1)
+  ); /* Sleet Night */
+  --tornado-night-gradient: linear-gradient(
+    to bottom,
+    rgba(28, 28, 28, 1),
+    rgba(0, 0, 0, 1)
+  ); /* Tornado Night */
+
+  /* RGBA Colors for Other Elements */
+  --clear-rgba: rgba(73, 121, 227, 0.4); /* Clear */
+  --partly-cloudy-rgba: rgba(160, 196, 255, 0.4); /* Partly Cloudy */
+  --cloudy-rgba: rgba(176, 176, 176, 0.4); /* Cloudy */
+  --rain-rgba: rgba(74, 144, 226, 0.4); /* Rain */
+  --snow-rgba: rgba(224, 247, 250, 0.4); /* Snow */
+  --thunderstorms-rgba: rgba(75, 0, 130, 0.4); /* Thunderstorms */
+  --fog-rgba: rgba(211, 211, 211, 0.4); /* Fog */
+  --windy-rgba: rgba(160, 211, 232, 0.4); /* Windy */
+  --drizzle-rgba: rgba(176, 196, 222, 0.4); /* Drizzle */
+  --haze-rgba: rgba(245, 222, 179, 0.4); /* Haze */
+  --sleet-rgba: rgba(169, 169, 169, 0.4); /* Sleet */
+  --tornado-rgba: rgba(47, 79, 79, 0.4); /* Tornado */
+
+  /* Night RGBA Colors for Other Elements */
+  --clear-night-rgba: rgba(28, 28, 58, 0.4); /* Clear Night */
+  --partly-cloudy-night-rgba: rgba(44, 44, 74, 0.4); /* Partly Cloudy Night */
+  --cloudy-night-rgba: rgba(74, 74, 74, 0.4); /* Cloudy Night */
+  --rain-night-rgba: rgba(44, 62, 80, 0.4); /* Rain Night */
+  --snow-night-rgba: rgba(224, 247, 250, 0.4); /* Snow Night */
+  --thunderstorms-night-rgba: rgba(47, 47, 79, 0.4); /* Thunderstorms Night */
+  --fog-night-rgba: rgba(74, 74, 74, 0.4); /* Fog Night */
+  --windy-night-rgba: rgba(44, 62, 80, 0.4); /* Windy Night */
+  --drizzle-night-rgba: rgba(74, 74, 74, 0.4); /* Drizzle Night */
+  --haze-night-rgba: rgba(74, 74, 74, 0.4); /* Haze Night */
+  --sleet-night-rgba: rgba(74, 74, 74, 0.4); /* Sleet Night */
+  --tornado-night-rgba: rgba(28, 28, 28, 0.4); /* Tornado Night */
 }
 
 body {
   /* background-color: rgb(188, 220, 238); */
   background: var(--clear-gradient);
-  background-color: rgb(73, 121, 227);
+  /* background-color: rgb(73, 121, 227); */
   /* background-color: rgb(188, 220, 238); */
   background-attachment: fixed;
   background-size: cover;
@@ -481,7 +600,8 @@ body {
   justify-content: space-between;
 }
 
-#next-moon-rise, .average-title {
+#next-moon-rise,
+.average-title {
   font-size: 0.9rem;
   color: rgb(255, 255, 255, 0.5);
 }
@@ -499,12 +619,14 @@ body {
   /* font-weight: 500; */
 }
 
-#averages-desc, .average-small-value {
+#averages-desc,
+.average-small-value {
   font-size: 0.9rem;
   font-weight: 600;
 }
 
-#averages {
+#averages,
+#twilight {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
