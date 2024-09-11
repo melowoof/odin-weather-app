@@ -89,7 +89,7 @@ body {
 }
 
 #search-box:not(:focus) {
-    color: rgb(255, 255, 255, 0.4);
+  color: rgb(255, 255, 255, 0.4);
 }
 
 #current-weather-container-row {
@@ -193,7 +193,9 @@ body {
 
 #current-weather-container #high-temp,
 #current-weather-container #low-temp,
-#temperature-weather-status-normal .current-weather-status {
+#temperature-weather-status-normal .current-weather-status,
+.forecast-day-low-temp,
+.forecast-day-high-temp {
   font-size: 1.2rem;
   font-weight: 500;
 }
@@ -261,9 +263,9 @@ body {
 }
 
 .sunrise-sunset {
-    margin-left: auto;
-    display: flex;
-    flex-direction: row;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
 }
 
 .forecast-hour-weather-status-icon img {
@@ -280,17 +282,242 @@ body {
   justify-content: space-between;
 }
 
-.forecast-hour .chance-of-rain {
+.forecast-hour .chance-of-rain,
+.forecast-day-chance-of-rain {
   font-size: 0.9rem;
   color: #a1d8f5;
   opacity: 1;
 }
 
-#ten-day-forecast {
+.ten-day-forecast {
   grid-column: span 2;
   grid-row: span 3;
 }
 
+#ten-day-forecast {
+  display: grid;
+  /* background-color: red; */
+  height: calc(100% - 15px);
+  grid-template-rows: repeat(10, 1fr);
+}
+
 .forecast-hour-weather-status-icon {
-    filter: invert(1);
+  /* filter: invert(1); */
+  /* width: 40px;
+  height: 40px; */
+}
+
+.grid-item-name {
+  height: 32px;
+  display: flex;
+  /* border-bottom: 0.5px solid rgb(255, 255, 255, 0.5); */
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgb(255, 255, 255, 0.5);
+}
+
+.forecast-day {
+  display: grid;
+  /* outline: 1px solid black; */
+  grid-template-columns: 20% 20% 60%;
+  border-top: 0.5px solid rgb(255, 255, 255, 0.5);
+  align-items: center;
+  /* background-color: red; */
+  height: 100%;
+}
+
+.forecast-day-date {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.forecast-day-weather-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forecast-day-high-low-temp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.forecast-day-low-temp {
+  color: rgb(255, 255, 255, 0.5);
+}
+
+.forecast-day-temperature-meter {
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.1);
+  border-radius: 5px;
+  position: relative;
+  height: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  /* overflow: hidden; */
+}
+
+.forecast-day-temperature-meter-filled {
+  height: 100%;
+  /* background-color: rgb(128, 207, 216, 0.8); */
+  background: linear-gradient(to right, #80cfd8, #f6c644);
+  border-radius: 5px;
+  position: absolute;
+  left: 20%;
+  width: 30%;
+  /* overflow: hidden; */
+  z-index: 1;
+}
+
+#uv-index {
+  display: grid;
+  grid-template-rows: 40% 60%;
+  height: calc(100% - 15px);
+
+  /* background-color: red; */
+}
+
+.uv-index-status {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.uv-index-value {
+  font-size: 2.2rem;
+}
+
+.uv-index-level {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.uv-index-meter-container {
+  height: 100%;
+  /* background-color: #fff; */
+  display: flex;
+  padding: 20px 0;
+}
+
+.uv-index-meter {
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.1);
+  background: linear-gradient(
+    to right,
+    #00ff00,
+    #ffff00,
+    #ff7f00,
+    #ff0000,
+    #ff00ff
+  );
+  border-radius: 5px;
+  position: relative;
+  height: 5px;
+  /* margin-left: 10px;
+  margin-right: 10px; */
+  /* overflow: hidden; */
+}
+
+.uv-index-meter-point {
+  height: 100%;
+  background-color: white;
+  border-radius: 5px;
+  position: absolute;
+  /* left: 20%; */
+  width: 5.2px;
+  outline: 2px solid rgb(0, 0, 0, 0.5);
+  /* overflow: hidden; */
+}
+
+#twilight {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* background-color: red; */
+  height: calc(100% - 15px);
+}
+
+#twilight-big-time {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+#twilight-small-time,
+#wind-direction,
+.precip-value {
+  font-size: 0.9rem;
+}
+
+#wind {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+  height: calc(100% - 15px);
+  /* background-color: red; */
+}
+
+#wind-speed,
+#precipitation-level,
+#feels-like,
+#moon-phase-value,
+#visibility-range,
+#humidity-level,
+#pressure,
+#averages-value {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+#moon-phase,
+#humidity {
+  height: calc(100% - 30px);
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#next-moon-rise, .average-title {
+  font-size: 0.9rem;
+  color: rgb(255, 255, 255, 0.5);
+}
+
+#visibility {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 40px);
+}
+
+#visibility-desc,
+#dew-point {
+  font-size: 0.9rem;
+  /* font-weight: 500; */
+}
+
+#averages-desc, .average-small-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+#averages {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: blue; */
+  height: calc(100% - 30px);
+}
+
+#averages-today-average-container {
+  /* display: flex; */
+  /* background-color: red; */
+}
+
+.average-today-average {
+  display: flex;
+  justify-content: space-between;
 }

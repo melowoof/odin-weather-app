@@ -26,6 +26,17 @@ document.querySelector("#search-box").addEventListener("keydown", (event) => {
 function displayData(data) {
   weatherUI.currentWeather(data);
   weatherUI.hourlyForecast(data);
+  weatherUI.tenDaysForecast(data);
+  weatherUI.uvIndex(data);
+  weatherUI.twilight(data);
+  weatherUI.windSpeed(data);
+  weatherUI.precipitation(data);
+  weatherUI.feelsLike(data);
+  weatherUI.moonPhase(data);
+  weatherUI.visibility(data);
+  weatherUI.humidity(data);
+  weatherUI.pressure(data);
+  weatherUI.averages(data);
 }
 
 async function search(event) {
