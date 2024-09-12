@@ -8,10 +8,10 @@ export async function fetchWeatherData(city) {
 
   const apiKey = "0542a923612c4aadaed232622240509";
   //   const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
-  const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=10&aqi=no&alerts=no`;
+  const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=10&aqi=no&alerts=no`;
 
   try {
-    const response = await fetch(apiUrl, { mode: "cors" });
+    const response = await fetch(apiUrl);
     if (!response.ok) {
       throw new Error(
         `Response status error: ${response.status} ${response.statusText}`
