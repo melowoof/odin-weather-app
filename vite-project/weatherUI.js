@@ -490,11 +490,11 @@ export function twilight(data) {
   let nextTwilight = "SUNRISE";
 
   if (currentTimeObj >= sunriseTimeObj && currentTimeObj <= sunsetTimeObj) {
-    sunrise = convertTo24Hour(data.forecast.forecastday[1].astro.sunrise);
+    sunrise = data.forecast.forecastday[1].astro.sunrise;
     nextTwilight = "SUNSET";
   } else if (currentTime >= sunsetTimeObj) {
-    sunrise = convertTo24Hour(data.forecast.forecastday[1].astro.sunrise);
-    sunset = convertTo24Hour(data.forecast.forecastday[1].astro.sunset);
+    sunrise = data.forecast.forecastday[1].astro.sunrise;
+    sunset = data.forecast.forecastday[1].astro.sunset;
     nextTwilight = "SUNRISE";
   }
 
