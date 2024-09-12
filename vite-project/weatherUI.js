@@ -9,6 +9,8 @@ export function currentWeather(data) {
   const weatherStatus = document.querySelectorAll(
     "#current-weather-container .current-weather-status"
   );
+  const temperatureHighDiv = document.querySelector("#high-temp");
+  const temperatureLowDiv = document.querySelector("#low-temp");
 
   const location = document.querySelector("#location");
 
@@ -20,6 +22,12 @@ export function currentWeather(data) {
     status.textContent = data.current.condition.text;
   });
   location.textContent = data.location.name;
+  temperatureHighDiv.innerHTML = `H:${Math.floor(
+    convertTemp(data.forecast.forecastday[0].day.maxtemp_c)
+  )}`;
+  temperatureLowDiv.innerHTML = `L:${Math.floor(
+    convertTemp(data.forecast.forecastday[0].day.mintemp_c)
+  )}`;
 }
 
 // function returnWeatherIconSrc(weatherCondition, is_day) {
@@ -381,7 +389,9 @@ export function tenDaysForecast(data) {
     const dateString =
       i === 0 ? "Today" : getWeekday(data.forecast.forecastday[i].date);
     const meterPoint =
-      i === 0 ? `<div class="uv-index-meter-point"></div>` : "";
+      i === 0
+        ? `<div class="temperature-meter-point" id="temperature-meter-point"></div>`
+        : "";
 
     forecastDayDiv.innerHTML = `<div class="forecast-day">
               <div class="forecast-day-date">${dateString}</div>
@@ -411,6 +421,15 @@ export function tenDaysForecast(data) {
     const filledDiv = document.getElementById(
       `forecast-day-temperature-meter-filled-${i}`
     );
+    const meterPointDiv = document.getElementById("temperature-meter-point");
+    const meterPercentage = getPercentage(
+      lowestTemp,
+      highestTemp,
+      data.current.temp_c
+    );
+    meterPointDiv.style.left = `${meterPercentage}%`
+    console.log(meterPercentage, lowestTemp, highestTemp);
+    
     const leftPercentage = getPercentage(
       lowestTemp,
       highestTemp,
@@ -474,6 +493,7 @@ export function uvIndex(data) {
   uvIndex.appendChild(uvIndexDiv);
   const uvIndexMeterPoint = document.querySelector(".uv-index-meter-point");
   uvIndexMeterPoint.style.left = `${uvLeft}%`;
+  console.log(uvIndexValue);
 }
 
 export function twilight(data) {
