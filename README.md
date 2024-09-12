@@ -9,8 +9,8 @@ Preview link: https://melowoof.github.io/odin-weather-app/
 Design from: Apple's Weather App
 
 Built with: 
-Vite
-WeatherAPI
-JavaScript
-HTML
-CSS
+- Vite
+- WeatherAPI
+- JavaScript
+- HTML
+- CSS
