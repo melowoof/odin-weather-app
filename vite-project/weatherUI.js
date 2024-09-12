@@ -111,6 +111,7 @@ export function currentWeather(data) {
 
 export function hourlyForecast(data) {
   const hourlyForecast = document.querySelector("#hourly-forecast");
+  const hourlyWeatherStatus = document.querySelector("#hourly-weather-status");
   //   let [sunriseTime, sunriseDate] = [
   //     convertTo24Hour(data.forecast.forecastday[0].astro.sunrise),
   //     0,
@@ -138,6 +139,7 @@ export function hourlyForecast(data) {
   // }
 
   hourlyForecast.innerHTML = "";
+  hourlyWeatherStatus.innerHTML = data.current.condition.text;
 
   const forecastHourNow = document.createElement("div");
   forecastHourNow.className = "forecast-hour";
