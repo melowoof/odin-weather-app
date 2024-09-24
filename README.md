@@ -1,7 +1,7 @@
 # Weather-app
 
 A weather app using weatherAPI
-![[Safari_Personal — Vite App_0924_j0GngKoq.gif]]
+![alt text](<Safari_Personal — Vite App_0924_j0GngKoq.gif>)
 
 ## Links
 
