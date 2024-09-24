@@ -22,16 +22,16 @@ A weather app using weatherAPI
 
 A weather app for one of The Odin Project's assignments - on the topic of learning and practicing with fetch(), APIs, asynchronous code, and async/await.
 
-The front-end design was very tightly inspired by Apple's Weather app. Since this project is primarily on the back-end and revolves much around getting somewhat more used to APIs and data fetching, I didn't want to devolve too much time into designing something completely new. Apple's weather app seemed completely fine to imitate - it's aesthetically beautiful, and it has many different weather datas that I could get used to using the API key.
+The front-end design was tightly inspired by Apple's Weather app. Since this project is primarily focused on the back-end and revolves around becoming more accustomed to APIs and data fetching, it was decided not to invest too much time into designing something completely new. Imitating Apple's Weather app was deemed appropriate—it is aesthetically beautiful and offers various weather data that can be utilized with the API key.
 
 ## Challenges
 
-A challenge I'd faced at the start of the project was tinkering around with fetching data from the API server. Up until that point I'd done small assignments on fetching, but I'd wanted to implement caching functions as well as to not have to refetch data from the server every time the page refreshes, but instead store it on the local server.
+A challenge encountered at the start of the project was tinkering with fetching data from the API server. Up until that point, small assignments on fetching had been completed, but there was a desire to implement caching functions to avoid refetching data from the server every time the page refreshes, instead storing it on the local server.
 
-A problem I started facing weeks after finishing the project was my forecast functions somehow returning errors after never having produced such outputs before. After some debugging, it turns out only that the free API I was using has a free month trial, where a forecast of 10 days is available for usage. But then after that one month period, the API then returns only 3 days. It was however an easy fix - I only had to change my for-loops to go to 3 instead of 10.
+A problem that arose weeks after finishing the project involved the forecast functions returning errors after previously not producing such outputs. After some debugging, it was discovered that the free API being used has a one-month trial period, during which a forecast of 10 days is available. After that month, the API returns only 3 days. This was an easy fix—only a change in the for-loops was needed to iterate to 3 instead of 10.
 
-Not as much of a challenge as it is more of a chore, but something recurring throughout the project was writing functions for styling a combination static HTML and dynamic JavaScript for every present module in the web-app. The code becomes a mess after a while, and I had thought about maybe how it'll become better as I continue on with the curriculum and take on more in-depth lessons about advanced CSS.
+Not so much a challenge as a recurring chore throughout the project was writing functions for styling a combination of static HTML and dynamic JavaScript for every module in the web app. The code became messy over time, leading to thoughts about how it might improve with continued progress in the curriculum and more in-depth lessons on advanced CSS.
 
 ## Notes
 
-Working in-depth with some weather data throughout this project, I've noticed some odd inconsistencies or quirks in the API data. For example, I'm assuming that if a location the user searches has even very small patches of rain, the rain forecast will be shown as 100% (because the data is for the entire town/city). Another is the current temperature being lower or higher than the minimum or maximum temperature of the day.
+Working in-depth with weather data throughout this project revealed some odd inconsistencies or quirks in the API data. For example, if a location searched by the user has even very small patches of rain, the rain forecast is shown as 100% (because the data is for the entire town or city). Another inconsistency is the current temperature being lower or higher than the minimum or maximum temperature of the day.
