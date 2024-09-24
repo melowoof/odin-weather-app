@@ -70,7 +70,3 @@ function handleError(error) {
   console.error(`Failed to fetch weather data:`, error);
   throw error;
 }
-
-function updateUI() {}
-
-function updateTempDisplay() {}

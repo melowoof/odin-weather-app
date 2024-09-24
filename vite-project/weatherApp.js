@@ -1,6 +1,5 @@
 import * as weatherUI from "./weatherUI.js";
 import * as weatherAPI from "./weatherAPI.js";
-// import { currentWeatherScrollOpacity } from "./weatherUI";
 
 weatherUI.currentWeatherScrollOpacity();
 window.onload = function () {
@@ -11,10 +10,9 @@ document.querySelector("#search-box").addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     event.preventDefault();
     try {
-      // Remember to use .then() here to wait for data to come back first!!
+      // Remember to use .then() here to wait for data to come back first
       search(event).then((data) => {
         const weatherData = data;
-        // console.log(weatherData);
         displayData(weatherData);
       });
     } catch (error) {
