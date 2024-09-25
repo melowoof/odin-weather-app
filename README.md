@@ -6,7 +6,7 @@ A weather app using weatherAPI
 ## Links
 
 [Assignment link](https://www.theodinproject.com/lessons/node-path-javascript-weather-app)
-[Preview link](https://melowoof.github.io/odin-weather-app/)
+[Preview link](https://melowoof.github.io/weather-app/)
 
 ## Features
 
