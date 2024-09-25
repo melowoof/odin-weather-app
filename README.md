@@ -22,16 +22,14 @@ A weather app using weatherAPI
 
 A weather app for one of The Odin Project's assignments - on the topic of learning and practicing with fetch(), APIs, asynchronous code, and async/await.
 
-The front-end design was tightly inspired by Apple's Weather app. Since this project is primarily focused on the back-end and revolves around becoming more accustomed to APIs and data fetching, it was decided not to invest too much time into designing something completely new. Imitating Apple's Weather app was deemed appropriate—it is aesthetically beautiful and offers various weather data that can be utilized with the API key.
+The front-end design for this was tightly inspired by Apple's Weather app. Since this project is primarily focused on the back-end and revolves mostly around becoming more accustomed to APIs and data fetching, I'd decided it was not worth it to invest too much time into designing something completely new. Imitating Apple's Weather app seemed appropriate—it's aesthetically beautiful, and it offers various weather data that can be utilized with the API key.
 
 ## Challenges
 
-A challenge encountered at the start of the project was tinkering with fetching data from the API server. Up until that point, small assignments on fetching had been completed, but there was a desire to implement caching functions to avoid refetching data from the server every time the page refreshes, instead storing it on the local server.
+A challenge encountered at the start of the project was tinkering with fetching functions and promise handling. Up until that point, I'd only done small assignments on fetching, but there was a desire in this particular project to implement caching functions as to avoid having to refetch data from the server every time the page refreshes, and instead storing it locally.
 
-A problem that arose weeks after finishing the project involved the forecast functions returning errors after previously not producing such outputs. After some debugging, it was discovered that the free API being used has a one-month trial period, during which a forecast of 10 days is available. After that month, the API returns only 3 days. This was an easy fix—only a change in the for-loops was needed to iterate to 3 instead of 10.
-
-Not so much a challenge as a recurring chore throughout the project was writing functions for styling a combination of static HTML and dynamic JavaScript for every module in the web app. The code became messy over time, leading to thoughts about how it might improve with continued progress in the curriculum and more in-depth lessons on advanced CSS.
+Something that arose weeks after finishing the project was how the forecast functions would start returning errors that previously wasn't there. After some debugging, it just turns out that the free API that was being used has a one-month trial period, during which a forecast of 10 days is available. After that month though, the API returns only 3 days. This was ultimately an easy fix, and needed only a change in the for-loops to iterate to 3 days instead of 10.
 
 ## Notes
 
-Working in-depth with weather data throughout this project revealed some odd inconsistencies or quirks in the API data. For example, if a location searched by the user has even very small patches of rain, the rain forecast is shown as 100% (because the data is for the entire town or city). Another inconsistency is the current temperature being lower or higher than the minimum or maximum temperature of the day.
+Working in-depth with weather data throughout this project revealed some odd inconsistencies or quirks in the API data. For example, if a location searched by the user has even very small patches of rain, the rain forecast will be shown as 100% (because the data is - by my assumptsion -for the entire town / city). Another inconsistency is that sometimes the current temperature will be lower or higher than the minimum or maximum temperature of that day.
